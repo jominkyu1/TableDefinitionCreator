@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTableName = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,17 +48,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblTableName = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnAddToList = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbTables = new System.Windows.Forms.ListBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnAddToList = new System.Windows.Forms.Button();
+            this.btnExportHtml = new System.Windows.Forms.Button();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.btnExcludeTable = new System.Windows.Forms.Button();
             this.btnExportExcel = new System.Windows.Forms.Button();
-            this.lbTables = new System.Windows.Forms.ListBox();
             this.btnLoadFile = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.연결설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,7 +85,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 29);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 40);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -97,7 +100,7 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.splitContainer1.Size = new System.Drawing.Size(1225, 590);
+            this.splitContainer1.Size = new System.Drawing.Size(1225, 579);
             this.splitContainer1.SplitterDistance = 75;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -171,29 +174,16 @@
             this.txtTableName.TabIndex = 1;
             this.txtTableName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTableName_KeyDown);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSearch.Image = global::TableDefinitionCreator.Properties.Resources.Find_32;
-            this.btnSearch.Location = new System.Drawing.Point(1108, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 36);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.TabStop = false;
-            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox4, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox4, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 12);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -201,7 +191,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1219, 496);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1219, 485);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox2
@@ -212,7 +202,7 @@
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(963, 380);
+            this.groupBox2.Size = new System.Drawing.Size(928, 369);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "< Search Result >";
@@ -233,16 +223,16 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(957, 359);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(922, 348);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // richTxtRemark
             // 
             this.richTxtRemark.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtRemark.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTxtRemark.Location = new System.Drawing.Point(123, 266);
+            this.richTxtRemark.Location = new System.Drawing.Point(123, 258);
             this.richTxtRemark.Name = "richTxtRemark";
-            this.richTxtRemark.Size = new System.Drawing.Size(831, 90);
+            this.richTxtRemark.Size = new System.Drawing.Size(796, 87);
             this.richTxtRemark.TabIndex = 7;
             this.richTxtRemark.Text = "";
             // 
@@ -275,7 +265,7 @@
             this.dgvResult.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvResult.RowTemplate.Height = 27;
             this.dgvResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResult.Size = new System.Drawing.Size(951, 217);
+            this.dgvResult.Size = new System.Drawing.Size(916, 209);
             this.dgvResult.TabIndex = 2;
             // 
             // label2
@@ -283,10 +273,10 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(3, 266);
+            this.label2.Location = new System.Drawing.Point(3, 258);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 90);
+            this.label2.Size = new System.Drawing.Size(114, 87);
             this.label2.TabIndex = 8;
             this.label2.Text = "REMARK";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -296,9 +286,9 @@
             this.tableLayoutPanel6.ColumnCount = 5;
             this.tableLayoutPanel3.SetColumnSpan(this.tableLayoutPanel6, 2);
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.lblTableDesc, 3, 0);
             this.tableLayoutPanel6.Controls.Add(this.label4, 2, 0);
@@ -310,7 +300,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(957, 40);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(922, 40);
             this.tableLayoutPanel6.TabIndex = 9;
             // 
             // lblTableDesc
@@ -319,10 +309,10 @@
             this.lblTableDesc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTableDesc.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTableDesc.ForeColor = System.Drawing.Color.Black;
-            this.lblTableDesc.Location = new System.Drawing.Point(473, 3);
+            this.lblTableDesc.Location = new System.Drawing.Point(543, 3);
             this.lblTableDesc.Margin = new System.Windows.Forms.Padding(3);
             this.lblTableDesc.Name = "lblTableDesc";
-            this.lblTableDesc.Size = new System.Drawing.Size(294, 34);
+            this.lblTableDesc.Size = new System.Drawing.Size(344, 34);
             this.lblTableDesc.TabIndex = 14;
             this.lblTableDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -332,7 +322,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label4.Location = new System.Drawing.Point(273, 3);
+            this.label4.Location = new System.Drawing.Point(343, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(194, 34);
@@ -363,7 +353,7 @@
             this.lblTableName.Location = new System.Drawing.Point(123, 3);
             this.lblTableName.Margin = new System.Windows.Forms.Padding(3);
             this.lblTableName.Name = "lblTableName";
-            this.lblTableName.Size = new System.Drawing.Size(144, 34);
+            this.lblTableName.Size = new System.Drawing.Size(214, 34);
             this.lblTableName.TabIndex = 11;
             this.lblTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -373,12 +363,90 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.groupBox3.Location = new System.Drawing.Point(3, 389);
+            this.groupBox3.Location = new System.Drawing.Point(3, 378);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(963, 104);
+            this.groupBox3.Size = new System.Drawing.Size(928, 104);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "< Add to list >";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.Controls.Add(this.tableLayoutPanel5);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.groupBox4.Location = new System.Drawing.Point(972, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.tableLayoutPanel2.SetRowSpan(this.groupBox4, 2);
+            this.groupBox4.Size = new System.Drawing.Size(244, 479);
+            this.groupBox4.TabIndex = 10;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "< Export Table List >";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.btnExportHtml, 0, 5);
+            this.tableLayoutPanel5.Controls.Add(this.btnSaveFile, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.btnExcludeTable, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.btnExportExcel, 0, 4);
+            this.tableLayoutPanel5.Controls.Add(this.lbTables, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnLoadFile, 0, 2);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 6;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(238, 458);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // lbTables
+            // 
+            this.lbTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTables.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTables.FormattingEnabled = true;
+            this.lbTables.ItemHeight = 21;
+            this.lbTables.Location = new System.Drawing.Point(3, 3);
+            this.lbTables.Name = "lbTables";
+            this.lbTables.Size = new System.Drawing.Size(232, 152);
+            this.lbTables.TabIndex = 6;
+            this.lbTables.DoubleClick += new System.EventHandler(this.lbTables_DoubleClick);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.설정ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuStrip1.Size = new System.Drawing.Size(1225, 40);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSearch.Image = global::TableDefinitionCreator.Properties.Resources.Find_32;
+            this.btnSearch.Location = new System.Drawing.Point(1108, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(94, 36);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.TabStop = false;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAddToList
             // 
@@ -390,7 +458,7 @@
             this.btnAddToList.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddToList.Location = new System.Drawing.Point(3, 18);
             this.btnAddToList.Name = "btnAddToList";
-            this.btnAddToList.Size = new System.Drawing.Size(957, 83);
+            this.btnAddToList.Size = new System.Drawing.Size(922, 83);
             this.btnAddToList.TabIndex = 6;
             this.btnAddToList.TabStop = false;
             this.btnAddToList.Text = "ADD";
@@ -398,41 +466,24 @@
             this.btnAddToList.UseVisualStyleBackColor = false;
             this.btnAddToList.Click += new System.EventHandler(this.btnAddToList_Click);
             // 
-            // groupBox4
+            // btnExportHtml
             // 
-            this.groupBox4.BackColor = System.Drawing.Color.LemonChiffon;
-            this.groupBox4.Controls.Add(this.tableLayoutPanel5);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.groupBox4.Location = new System.Drawing.Point(972, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.tableLayoutPanel2.SetRowSpan(this.groupBox4, 2);
-            this.groupBox4.Size = new System.Drawing.Size(244, 490);
-            this.groupBox4.TabIndex = 10;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "< Export Table List >";
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.btnSaveFile, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.btnExcludeTable, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.btnExportExcel, 0, 4);
-            this.tableLayoutPanel5.Controls.Add(this.lbTables, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnLoadFile, 0, 1);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 18);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 5;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(238, 469);
-            this.tableLayoutPanel5.TabIndex = 0;
+            this.btnExportHtml.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnExportHtml.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExportHtml.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnExportHtml.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnExportHtml.Image = global::TableDefinitionCreator.Properties.Resources.html_48;
+            this.btnExportHtml.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportHtml.Location = new System.Drawing.Point(3, 401);
+            this.btnExportHtml.Name = "btnExportHtml";
+            this.btnExportHtml.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.btnExportHtml.Size = new System.Drawing.Size(232, 54);
+            this.btnExportHtml.TabIndex = 14;
+            this.btnExportHtml.TabStop = false;
+            this.btnExportHtml.Text = "EXPORT HTML";
+            this.btnExportHtml.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExportHtml.UseVisualStyleBackColor = false;
+            this.btnExportHtml.Click += new System.EventHandler(this.btnExportHtml_Click);
             // 
             // btnSaveFile
             // 
@@ -442,7 +493,7 @@
             this.btnSaveFile.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSaveFile.Image = global::TableDefinitionCreator.Properties.Resources.Save_48;
             this.btnSaveFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveFile.Location = new System.Drawing.Point(3, 292);
+            this.btnSaveFile.Location = new System.Drawing.Point(3, 281);
             this.btnSaveFile.Name = "btnSaveFile";
             this.btnSaveFile.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.btnSaveFile.Size = new System.Drawing.Size(232, 54);
@@ -454,19 +505,20 @@
             // 
             // btnExcludeTable
             // 
+            this.btnExcludeTable.BackColor = System.Drawing.Color.IndianRed;
             this.btnExcludeTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnExcludeTable.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnExcludeTable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnExcludeTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcludeTable.Image = global::TableDefinitionCreator.Properties.Resources.Delete_48;
             this.btnExcludeTable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcludeTable.Location = new System.Drawing.Point(3, 352);
+            this.btnExcludeTable.Location = new System.Drawing.Point(3, 161);
             this.btnExcludeTable.Name = "btnExcludeTable";
             this.btnExcludeTable.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.btnExcludeTable.Size = new System.Drawing.Size(232, 54);
             this.btnExcludeTable.TabIndex = 12;
             this.btnExcludeTable.Text = "EXCLUDE TABLE";
             this.btnExcludeTable.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcludeTable.UseVisualStyleBackColor = true;
+            this.btnExcludeTable.UseVisualStyleBackColor = false;
             this.btnExcludeTable.Click += new System.EventHandler(this.btnExcludeTable_Click);
             // 
             // btnExportExcel
@@ -477,7 +529,7 @@
             this.btnExportExcel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnExportExcel.Image = global::TableDefinitionCreator.Properties.Resources.Excel_48;
             this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExportExcel.Location = new System.Drawing.Point(3, 412);
+            this.btnExportExcel.Location = new System.Drawing.Point(3, 341);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.btnExportExcel.Size = new System.Drawing.Size(232, 54);
@@ -488,19 +540,6 @@
             this.btnExportExcel.UseVisualStyleBackColor = false;
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
-            // lbTables
-            // 
-            this.lbTables.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTables.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbTables.FormattingEnabled = true;
-            this.lbTables.ItemHeight = 21;
-            this.lbTables.Location = new System.Drawing.Point(3, 3);
-            this.lbTables.Name = "lbTables";
-            this.lbTables.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbTables.Size = new System.Drawing.Size(232, 223);
-            this.lbTables.TabIndex = 6;
-            this.lbTables.DoubleClick += new System.EventHandler(this.lbTables_DoubleClick);
-            // 
             // btnLoadFile
             // 
             this.btnLoadFile.BackColor = System.Drawing.Color.Transparent;
@@ -509,7 +548,7 @@
             this.btnLoadFile.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLoadFile.Image = global::TableDefinitionCreator.Properties.Resources.Attach_48;
             this.btnLoadFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadFile.Location = new System.Drawing.Point(3, 232);
+            this.btnLoadFile.Location = new System.Drawing.Point(3, 221);
             this.btnLoadFile.Name = "btnLoadFile";
             this.btnLoadFile.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.btnLoadFile.Size = new System.Drawing.Size(232, 54);
@@ -519,34 +558,37 @@
             this.btnLoadFile.UseVisualStyleBackColor = false;
             this.btnLoadFile.Click += new System.EventHandler(this.btnLoadFile_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Silver;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.설정ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(1225, 29);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // 설정ToolStripMenuItem
             // 
             this.설정ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.연결설정ToolStripMenuItem});
-            this.설정ToolStripMenuItem.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.설정ToolStripMenuItem.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.설정ToolStripMenuItem.Image = global::TableDefinitionCreator.Properties.Resources.settings_32;
+            this.설정ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.설정ToolStripMenuItem.Name = "설정ToolStripMenuItem";
-            this.설정ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
+            this.설정ToolStripMenuItem.Size = new System.Drawing.Size(86, 36);
             this.설정ToolStripMenuItem.Text = "설정";
             // 
             // 연결설정ToolStripMenuItem
             // 
             this.연결설정ToolStripMenuItem.Name = "연결설정ToolStripMenuItem";
-            this.연결설정ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.연결설정ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.연결설정ToolStripMenuItem.Text = "연결설정";
             this.연결설정ToolStripMenuItem.Click += new System.EventHandler(this.연결설정ToolStripMenuItem_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(937, 3);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Name = "label5";
+            this.tableLayoutPanel2.SetRowSpan(this.label5, 2);
+            this.label5.Size = new System.Drawing.Size(29, 479);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "▶";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -556,6 +598,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
@@ -571,6 +614,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -619,6 +663,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTableDesc;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnExportHtml;
+        private System.Windows.Forms.Label label5;
     }
 }
 

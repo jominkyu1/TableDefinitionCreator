@@ -38,9 +38,9 @@ namespace TableDefinitionCreator.utils
             if (tableInfos == null || tableInfos.Count == 0)
                 return dtList;
 
-            string tableCsv = tableInfos.Select(ti => ti.TableName).Aggregate((f, s) => f + "," + s);
+            string tableCsv = tableInfos.StringJoin(",", ti => ti.TableName);
             string query = $@"
-DECLARE @TableName NVARCHAR(128) = '{tableCsv}'
+DECLARE @TableName NVARCHAR(MAX) = '{tableCsv}'
 
 SELECT
     C.TABLE_NAME

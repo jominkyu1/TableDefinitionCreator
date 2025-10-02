@@ -2,6 +2,6 @@
 {
     internal enum SaveType
     {
-        EXCEL, JSON
+        EXCEL, JSON, HTML
     }
 }

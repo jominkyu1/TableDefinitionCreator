@@ -57,6 +57,12 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>programicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
@@ -132,9 +138,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="utils\HtmlManager.cs" />
     <Compile Include="utils\JsonManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\LinqExtensions.cs" />
     <Compile Include="utils\QueryManager.cs" />
     <Compile Include="dto\TableInformation.cs" />
     <EmbeddedResource Include="ConnectionSetupDialog.resx">
@@ -167,6 +175,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+    <None Include="img\html_48.png" />
+    <None Include="img\settings_32.png" />
+    <Content Include="program.ico" />
+    <Content Include="programicon.ico" />
     <None Include="img\Save_48.png" />
     <None Include="img\Find_32.png" />
     <None Include="img\Excel_48.png" />

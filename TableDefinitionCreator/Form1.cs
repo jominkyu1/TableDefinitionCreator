@@ -165,7 +165,8 @@ namespace TableDefinitionCreator
             }
 
             currentDt.ExtendedProperties["Remark"] = richTxtRemark.Text;
-            _tableList.Add(currentDt);
+            _tableList.Insert(0, currentDt);
+            lbTables.SelectedItem = currentDt;
             ClearSearchResult();
         }
 
@@ -204,13 +205,19 @@ namespace TableDefinitionCreator
                 {
                     case SaveType.EXCEL:
                         dialog.Filter = "엑셀 파일 (*.xlsx)|*.xlsx";
-                        dialog.Title = "엑셀로 내보내기";
+                        dialog.Title = "EXCEL";
                         dialog.FileName = $"SF-TD. 테이블 정의서_{DateTime.Now:yyyyMMdd}.xlsx";
                         break;
                     case SaveType.JSON:
-                        dialog.Filter = "JSON File (*.json)|*.json";
+                        dialog.Filter = "JSON 파일 (*.json)|*.json";
                         dialog.Title = "JSON";
                         dialog.FileName = "tables.json";
+                        break;
+
+                    case SaveType.HTML:
+                        dialog.Filter = "HTML 파일 (*.html)|*.html";
+                        dialog.Title = "HTML";
+                        dialog.FileName = $"SF-TD. 테이블 정의서_{DateTime.Now:yyyyMMdd}.html";
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(saveType), saveType, null);
@@ -273,6 +280,7 @@ namespace TableDefinitionCreator
                 List<DataTable> dtList = QueryManager.GetTableDefinitionList(parsedList);
 
                 ReplaceBindingList(dtList);
+                ClearSearchResult();
 
                 MessageBox.Show("불러오기가 완료되었습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -366,6 +374,41 @@ namespace TableDefinitionCreator
             lblTableName.Text = dt.TableName;
             lblTableDesc.Text = tableDesc;
             richTxtRemark.Text = dt.ExtendedProperties["Remark"]?.ToString() ?? string.Empty;
+        }
+
+        private void btnExportHtml_Click(object sender, EventArgs e)
+        {
+            if (_tableList.Count == 0)
+            {
+                MessageBox.Show("내보낼 테이블이 없습니다.", "테이블 없음", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                string filePath = ShowSaveFileDialog(SaveType.HTML);
+                if (string.IsNullOrEmpty(filePath))
+                    return;
+                this.Cursor = Cursors.WaitCursor;
+
+                HtmlManager.ExportToHtml(_tableList.ToList(), filePath, true);
+
+                DialogResult dialogResult = MessageBox.Show("내보내기가 완료되었습니다.\r\n파일을 여시겠습니까?", "완료",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Process.Start(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
     }
 }

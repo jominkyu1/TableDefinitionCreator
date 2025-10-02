@@ -66,15 +66,15 @@ namespace TableDefinitionCreator.utils
             if (dt.Rows.Count == 0)
                 return;
 
-            string seperator;
+            string separator;
             switch (copyType)
             {
                 case CopyType.TSV:
-                    seperator = "\t";
+                    separator = "\t";
                     break;
 
                 case CopyType.CSV:
-                    seperator = ",";
+                    separator = ",";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(copyType), copyType, null);
@@ -83,29 +83,27 @@ namespace TableDefinitionCreator.utils
             StringBuilder sb = new StringBuilder();
             if (includeHeader)
             {
-                AppendHeader(dt, sb, seperator);
+                AppendHeader(dt, sb, separator);
             }
 
-            AppendRows(dt, sb, seperator);
+            AppendRows(dt, sb, separator);
             Clipboard.SetText(sb.ToString());
         }
 
-        private static void AppendHeader(DataTable dt, StringBuilder sb, string seperator)
+        private static void AppendHeader(DataTable dt, StringBuilder sb, string separator)
         {
             string arrHeaderNames = dt.Columns.Cast<DataColumn>()
-                .Select(c => c.ColumnName)
-                .Aggregate((a, b) => a + seperator + b);
+                .StringJoin(separator, c => c.ColumnName);
 
             sb.AppendLine(arrHeaderNames);
         }
 
-        private static void AppendRows(DataTable dt, StringBuilder sb, string seperator)
+        private static void AppendRows(DataTable dt, StringBuilder sb, string separator)
         {
             foreach (DataRow row in dt.Rows)
             {
                 string arrRowValues = row.ItemArray
-                    .Select(v => v == DBNull.Value ? "" : v.ToString())
-                    .Aggregate((a, b) => a + seperator + b);
+                    .StringJoin(separator, v => ( v == DBNull.Value ) ? "" : v.ToString());
 
                 sb.AppendLine(arrRowValues);
             }

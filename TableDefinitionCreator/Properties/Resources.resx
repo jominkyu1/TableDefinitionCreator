@@ -124,16 +124,22 @@
   <data name="Excel_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\Excel_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\Add_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Attach_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\Attach_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\Save_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="html_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\html_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\Add_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Delete_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\Delete_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Save_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\Save_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\settings_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
